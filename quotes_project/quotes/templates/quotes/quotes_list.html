@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Quotes List{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h2>Quotes List</h2>
+    <ul class="list-group">
+      {% for quote in quotes %}
+        <li class="list-group-item">
+          <blockquote class="blockquote">
+            <p>{{ quote.quote }}</p>
+            <footer class="blockquote-footer">
+              <a href="{% url 'quotes:author-detail' quote.author.id %}">{{ quote.author.fullname }}</a>
+            </footer>
+          </blockquote>
+          <p><strong>Tags:</strong>
+            {% for tag in quote.tags.all %}
+              <span class="badge bg-primary">{{ tag.name }}</span>
+            {% endfor %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

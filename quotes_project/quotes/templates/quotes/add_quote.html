@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Add Quote{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h2>Add Quote</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.quote.label_tag }}
+        {{ form.quote }}
+      </div>
+      <div class="mb-3">
+        {{ form.author.label_tag }}
+        {{ form.author }}
+      </div>
+      <div class="mb-3">
+        {{ form.new_tags.label_tag }}
+        {{ form.new_tags }}
+        <small>{{ form.new_tags.help_text }}</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Quote</button>
+    </form>
+  </div>
+{% endblock %}

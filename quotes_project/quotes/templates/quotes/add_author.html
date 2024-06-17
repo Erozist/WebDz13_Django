@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Add Author{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h2>Add Author</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.fullname.label_tag }}
+        {{ form.fullname }}
+      </div>
+      <div class="mb-3">
+        {{ form.born_date.label_tag }}
+        {{ form.born_date }}
+      </div>
+      <div class="mb-3">
+        {{ form.born_location.label_tag }}
+        {{ form.born_location }}
+      </div>
+      <div class="mb-3">
+        {{ form.description.label_tag }}
+        {{ form.description }}
+      </div>
+      <button type="submit" class="btn btn-primary">Add Author</button>
+    </form>
+  </div>
+{% endblock %}
